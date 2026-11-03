@@ -4,6 +4,16 @@
 
 适用于论说文章、论文、行业报告、访谈、历史与调查叙事，以及混合型长文。
 
+## 一句话安装：复制给你的 Agent
+
+复制下面整段话并发给支持命令执行的 Agent：
+
+```text
+请把 GitHub 仓库 https://github.com/chj0124/longform-layered-reading 克隆到当前 Agent 的用户级技能目录（优先使用 ~/.agents/skills/longform-layered-reading；若你的 Agent 使用其他技能目录，请按其文档安装），保留 SKILL.md 和 references 的完整结构，重新加载技能后用一次长文摘要任务验证安装。
+```
+
+仓库已公开，克隆时不需要 GitHub 登录。若 Agent 无法执行命令，也可以按下面的手动步骤安装。
+
 ## 核心能力
 
 - 记录原文来源与实际可读范围，不把片段伪装成全文。
