@@ -20,6 +20,7 @@
 - 区分独立支撑、必要前提、共同作用、对照、时间、部分—整体、阐释和延伸外推。
 - 保留机制、激励、约束、成本、风险、条件、例外、限制和关键案例。
 - 区分原文陈述、作者判断、预测、有限旁证和不同人物的声音。
+- 只在知识缺口阻碍理解时就近补充简短背景，并明确标为非原文。
 - 根据内容选择纯文字、Markdown 对照表或单文件交互 HTML。
 - 交付前检查覆盖、关系、归因、分层、数值出处和验证声明。
 
@@ -72,6 +73,7 @@ longform-layered-reading/
     ├── text-structures.md
     ├── output-selection.md
     ├── interaction-patterns.md
+    ├── background-supplements.md
     └── fidelity-checklist.md
 ```
 
@@ -79,6 +81,7 @@ longform-layered-reading/
 - `text-structures.md`：不同文本类型的识别信号与内容地图要求。
 - `output-selection.md`：输出形式和默认层、支持层的选择契约。
 - `interaction-patterns.md`：文本关系到交互结构的映射及 HTML 实现要求。
+- `background-supplements.md`：仅在知识缺口阻碍理解时加载，规定背景的归属、预算和就近落位。
 - `fidelity-checklist.md`：交付前的覆盖、关系、归因与数值校验。
 
 参考文件按任务需要读取，不必每次全部加载。
