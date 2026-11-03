@@ -95,6 +95,10 @@ longform-layered-reading/
 
 当前验证覆盖论说、访谈、研究、叙事、混合文本、不完整输入和 HTML 场景。浏览器 console 采集与合成触屏分发未验证，不应被视为已通过。
 
+## 许可证
+
+本项目使用 [MIT License](LICENSE)。
+
 ## 维护者
 
 GitHub：[`chj0124`](https://github.com/chj0124)
