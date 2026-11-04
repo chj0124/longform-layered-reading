@@ -3,32 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="icon" href="data:,">
-<title>%%TITLE%%｜分层阅读</title>
+<title>%%TITLE%%</title>
 <style>
-:root{font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;color:#17202a;background:#f5f6f4;line-height:1.6}
-*{box-sizing:border-box}body{margin:0;font-size:16px}.wrap{max-width:1080px;margin:auto;padding:12px 16px 20px}h1{font-size:clamp(22px,2vw,26px);line-height:1.25;margin:0 0 4px}h2{font-size:18px;line-height:1.4;margin:16px 0 8px}h3{font-size:16px;line-height:1.45;margin:0 0 4px}p{margin:.3em 0}.meta,.label{color:#56616c;font-size:14px}.proposal{border-left:4px solid #245c4c;background:#eaf2ed;padding:8px 10px;margin:10px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.node{border-left:3px solid #607d8b;background:#fff;padding:8px 10px}.num{font-weight:700;color:#245c4c}.bridge{border-left:3px solid #b07b32;padding:6px 10px;margin:8px 0;background:#fff9ed}.constraint{border-left-color:#9b4b42}.prediction{border-left:3px solid #72538c;background:#f3eff7;padding:8px 10px;margin-top:10px}details{margin:6px 0 0;padding-top:4px;border-top:1px solid #dfe3e6}summary{cursor:pointer;min-height:44px;padding:8px 0;font-weight:600}summary:focus-visible,a:focus-visible{outline:3px solid #246bfe;outline-offset:3px}.coverage{margin-top:12px;font-size:14px;color:#46515b}.coverage details{border:0;padding:0}.table-scroll{overflow-x:auto;padding:2px}table{border-collapse:collapse;width:100%}th,td{padding:6px 8px;text-align:left;border-bottom:1px solid #dfe3e6;vertical-align:top}a{color:#245c4c;text-underline-offset:3px}nav a{display:inline-flex;align-items:center;min-height:24px}@media(max-width:640px){.wrap{padding:10px 12px 16px}.grid{grid-template-columns:1fr;gap:8px}.node,.bridge,.prediction{padding:7px 9px}}
+:root{color-scheme:light;--ink:#17211b;--muted:#5b665f;--line:#cbd5ce;--soft:#f2f5f2;--accent:#245c4c;--paper:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+main{max-width:880px;margin:auto;padding:28px 22px 56px}h1{font-size:clamp(26px,5vw,38px);line-height:1.25;margin:0 0 10px}h2{font-size:22px;line-height:1.4;margin:34px 0 12px}h3{font-size:17px;margin:20px 0 8px}p{margin:10px 0}.meta,.note{color:var(--muted);font-size:14px}.core{border-left:4px solid var(--accent);padding:8px 16px;background:var(--soft);margin:20px 0}.overview{padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 20px}.overview li{border-bottom:1px solid var(--line);padding:6px 0}.step{border-top:1px solid var(--line);padding:16px 0}.step h2{margin-top:0}.bridge{padding:12px 16px;background:var(--soft);border-radius:6px}.bridge strong{color:var(--accent)}details{border-top:1px solid var(--line);padding:10px 0}summary{cursor:pointer;font-weight:650;min-height:44px;display:flex;align-items:center}details[open] summary{color:var(--accent)}details>div{padding:0 0 8px 18px}a{color:#245c4c;text-underline-offset:3px}nav a{display:inline-flex;align-items:center;min-height:24px}:focus-visible{outline:3px solid #9a5b00;outline-offset:4px}footer{border-top:1px solid var(--line);margin-top:28px;padding-top:16px;color:var(--muted);font-size:14px}
+@media(max-width:560px){main{padding:20px 16px 40px}.overview{grid-template-columns:1fr}.bridge{padding:10px 12px}details>div{padding-left:0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<div class="wrap">
-<!-- 仅替换文章内容与必要关系组件；公共样式或交互变更须重新执行完整呈现验证。 -->
+<main id="main" data-main-reading-path>
+<header>
 <h1>%%TITLE%%</h1>
 <p class="meta">%%SOURCE_AND_MODE%%</p>
-<nav class="meta" aria-label="页内导航"><a href="#main">从主阅读路径开始</a>｜<a href="#coverage">覆盖与验证说明</a></nav>
-<main id="main" data-main-reading-path>
-<p class="proposal"><strong>作者结论／事件主轴：</strong>%%CORE_CONCLUSION%%</p>
-%%STRUCTURE_OVERVIEW%%
-<section aria-labelledby="section-1">
-<h2 id="section-1">1. %%FIRST_SECTION_QUESTION%%</h2>
+<div class="core">%%CORE_CONCLUSION%%</div>
+</header>
+<nav aria-label="本文主线">
+<ul class="overview">%%STRUCTURE_OVERVIEW%%</ul>
+</nav>
+<section class="step" id="section-1">
+<h2>%%FIRST_SECTION_QUESTION%%</h2>
 %%FIRST_MAIN_CONTENT%%
-<details><summary>%%FIRST_DETAIL_SUMMARY%%</summary>%%FIRST_DETAIL_CONTENT%%</details>
+<details>
+<summary>%%FIRST_DETAIL_SUMMARY%%</summary>
+<div>%%FIRST_DETAIL_CONTENT%%</div>
+</details>
 </section>
 %%MORE_MAIN_SECTIONS%%
 </main>
-<aside id="coverage" class="coverage" aria-label="覆盖与验证信息">
-<details><summary>覆盖核对与实际验证范围</summary>%%COVERAGE_AND_VALIDATION%%</details>
-</aside>
-</div>
+<footer>
+%%COVERAGE_AND_VALIDATION%%
+<p><a href="#main">回到主线开头</a></p>
+</footer>
 </body>
 </html>
