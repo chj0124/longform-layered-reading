@@ -40,12 +40,12 @@ description: Use when restructuring long-form texts for easier reading without l
 2. **选定执行档位**：默认日常档；出现上述信号时回退完整档。先选档再加载参考，避免日常流程预读完整审计材料。
 3. **按档位准备结构**：
    - 日常档：判断文本组织方式；类型或关系不明确时加载 `references/text-structures.md`，不必为清晰短文预读全部分类。建立轻量内容草图，登记核心问题、作者结论／事件主轴、功能板块、主线／细节和关键连接；草图供内部使用，不强制编号或表格化。
-   - 完整档：加载 `references/text-structures.md` 判定文本类型，再加载 `references/content-map.md` 建立信息清单与内容地图。为原文信息单元编号，登记归属、输出落位及「主线／细节」分配；每个信息单元必须有且仅有一个主要输出节点。
-4. **设计主阅读路径与具体连接** → 两档均加载 `references/reading-path.md`。先排阅读顺序，再为关键连接写具体桥接句，最后分配细节；记录主线时长是实测还是估算。需要时就近拆解长难句，不单独制造重复正文。
+   - 完整档：加载 `references/text-structures.md` 判定文本类型，再加载 `references/content-map.md` 建立信息清单与内容地图。为原文信息单元编号，登记归属、输出落位及「主线／细节」分配；每个信息单元必须有且仅有一个主要输出节点，其他提及位置只登记为交叉引用，不重复计数。
+4. **设计主线并先过预算闸门** → 两档均加载 `references/reading-path.md`。两档都只按删除测试分配 M／D；完整档不得因信息已编号或「看起来重要」而把支撑信息升级为 M。先写带主线标记的候选并记录实测或估算：完整档在制作用户可见的逐项覆盖表前检查，日常档在补齐细节与最终回查前检查。超时先移回细节或压缩重复表达；核心推导与 5 分钟上限冲突时如实报告，不用正式清单豁免。随后再写具体桥接、分配细节并复测成稿。
 5. **选择并实现输出形式** → 加载 `references/output-selection.md`。只有输出 HTML 时才加载 `references/interaction-patterns.md`；不得为了形式统一而强行制图或升级成交互页。
 6. **交付前校验** → 加载 `references/fidelity-checklist.md`，执行当前档位项目。预测须显式归属作者，未执行的检查不得声称通过。
    - 日常档：成稿后按原文顺序逐段回查，检查每段中的事实、判断、机制、例子、数据、条件、限制、例外、旁支和引语是否已保留、改写，或仅因完全重复而合并；是否改变归属与不确定性。不输出正式覆盖表时，写明「已逐段回查，未做逐项编号审计」；没有实际回查不得这样声明。发现异常即回退完整档，不靠缩短交付掩盖。
-   - 完整档：执行完整档追加审计；需要正式证据时使用 `validation/scoring-rubric.md` 和 `validation/report-template.md`。
+   - 完整档：成稿后运行 `python3 scripts/validate_content_map.py <内容地图.md>`，再执行完整档追加审计；校验失败先修正。需要正式证据时使用 `validation/scoring-rubric.md` 和 `validation/report-template.md`。
 
 ## 结构契约
 

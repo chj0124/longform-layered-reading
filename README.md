@@ -28,7 +28,7 @@ git clone https://github.com/chj0124/longform-layered-reading.git "$HOME/.agents
 
 - 记录原文来源、目标读者与实际可读范围，不把片段伪装成全文。
 - 日常档按原文顺序逐段回查；完整档建立原文信息清单，每项信息都有唯一主要落位与回溯编号。
-- 长文主线以 3—5 分钟为目标，不设原文字数比例；短文不填充时长。
+- 长文主线以 3—5 分钟为目标，不设原文字数比例；先按删除测试分配 M／D 并检查候选主线，成稿后复测；短文不填充时长。
 - 区分主线与细节层：核心推导不折叠，次要但有信息量的细节不删除。
 - 每个板块回答一个具体理解问题，不只贴「前提／支撑／判断标准」等抽象标签。
 - 每个关键连接写清起点内容、推理或条件、终点内容及阅读顺序理由。
@@ -85,7 +85,7 @@ Markdown 在主阅读路径首尾放置：
 <!-- main-reading-path:end -->
 ```
 
-HTML 在主线路径容器上设置 `data-main-reading-path`。随后运行：
+HTML 在主线路径容器上设置 `data-main-reading-path`；旁证、回帖、推广和其他支持层放在该容器之外，结构总览只保留短句骨架。随后运行：
 
 ```bash
 python3 scripts/estimate_main_path.py <输出文件> --enforce
@@ -98,6 +98,22 @@ python3 scripts/estimate_main_path.py <输出文件> --allow-short --enforce
 ```
 
 结果只是按可配置文本速度计算的估算，不是真实阅读实测，也不包含图示理解成本；核心论证是否完整仍须按清单复核。
+
+## 完整档内容地图校验
+
+完整档成稿后运行：
+
+```bash
+python3 scripts/validate_content_map.py <内容地图.md>
+```
+
+校验器检查 `Sxxx` 连续与唯一、唯一主要落位、交叉引用格式、`M／D`、合并目标和覆盖统计。交叉引用不重复计数；合并处理方式写成 `合并→S003`。正常样例可直接运行：
+
+```bash
+python3 scripts/validate_content_map.py examples/content-map-example.md
+```
+
+脚本只检查底稿的机器可验证结构，不能代替输出文本的双向回查与归属审计。日常档不生成正式清单，也不需要运行此脚本。
 
 ## 目录结构
 
@@ -115,7 +131,8 @@ longform-layered-reading/
 ├── assets/
 │   └── compact-reading-template.html
 ├── scripts/
-│   └── estimate_main_path.py
+│   ├── estimate_main_path.py
+│   └── validate_content_map.py
 ├── examples/
 │   └── content-map-example.md
 └── validation/
