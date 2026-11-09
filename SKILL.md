@@ -1,6 +1,6 @@
 ---
 name: longform-layered-reading
-description: Use when restructuring long-form texts for easier reading without losing information, exposing reasoning, or providing explicit summaries. Target a 3–5 minute main path with concrete links and complete details. Choose Markdown for simple hierarchies or compact HTML for complex relations.
+description: Use when restructuring long-form texts for easier reading while preserving all substantive information and exposing concrete reasoning, or when explicitly asked to summarize a long-form text.
 ---
 
 # Longform Layered Reading
