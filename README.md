@@ -75,9 +75,9 @@ https://example.com/article
 | 对照表（组件） | 多个主体或方案共享稳定、同义的比较维度 |
 | 明确摘要 | 仅用户明确要求摘要、速读或压缩时启用 |
 
-## 主线时长估算
+## 主线估算与 Markdown 交付
 
-Markdown 在主阅读路径首尾放置：
+Markdown **校验工作稿**在主阅读路径首尾放置：
 
 ```text
 <!-- main-reading-path:start -->
@@ -85,19 +85,23 @@ Markdown 在主阅读路径首尾放置：
 <!-- main-reading-path:end -->
 ```
 
-HTML 在主线路径容器上设置 `data-main-reading-path`；旁证、回帖、推广和其他支持层放在该容器之外，结构总览只保留短句骨架。随后运行：
+这些注释只供估算脚本识别，不得留在用户交付稿中。Markdown 默认用「细节见 D1」「返回主线 M1」等编号文字双向定位；只有确认目标阅读器支持相应锚点时，才使用可点击页内链接，不默认插入原始 HTML。
+
+HTML 在主线路径容器上设置 `data-main-reading-path`；旁证、回帖、推广和其他支持层放在该容器之外，结构总览只保留短句骨架。
+
+先估算工作稿并生成阅读器中立的交付稿：
 
 ```bash
-python3 scripts/estimate_main_path.py <输出文件> --enforce
+python3 scripts/estimate_main_path.py <工作稿.md> --finalize <交付稿.md>
 ```
 
-短文允许低于 3 分钟时：
+需要强制主线处于 3—5 分钟时加入 `--enforce`；短文允许低于 3 分钟时加入 `--allow-short`。只检查已有交付稿：
 
 ```bash
-python3 scripts/estimate_main_path.py <输出文件> --allow-short --enforce
+python3 scripts/estimate_main_path.py <交付稿.md> --check-delivered
 ```
 
-结果只是按可配置文本速度计算的估算，不是真实阅读实测，也不包含图示理解成本；核心论证是否完整仍须按清单复核。
+交付脚本只处理围栏代码块之外的标记与导航。发现残留校验注释、原始 HTML、未验证页内链接，或链接文字缺少目标编号时，会阻止交付。结果只是按可配置文本速度计算的估算，不是真实阅读实测，也不包含图示理解成本；核心论证是否完整仍须按清单复核。
 
 ## 完整档内容地图校验
 
